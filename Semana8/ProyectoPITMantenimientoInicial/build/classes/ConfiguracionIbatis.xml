@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		
+		<typeAlias alias="menumybatis" type="developer.com.bean.Menu" />
+		<typeAlias alias="rolmybatis" type="developer.com.bean.Rol" />
+		<typeAlias alias="rolmenumybatis" type="developer.com.bean.RolMenu" />
+		<typeAlias alias="usuariomybatis" type="developer.com.bean.Usuario" />
+		
+		
+		<typeAlias alias="doctorAlias"  type="pro.vet.beans.doctor" />
+		<typeAlias alias="horarioAlias"  type="pro.vet.beans.horario" />
+		<typeAlias alias="citaAlias"  type="pro.vet.beans.cita" />
+		<typeAlias alias="mascotaAlias"  type="pro.vet.beans.horario" />
+		<typeAlias alias="especialidadAlias"  type="pro.vet.beans.especialidad" />
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="net.sourceforge.jtds.jdbc.Driver" />
+				<property name="url"
+					value="jdbc:jtds:sqlserver://localhost:1433/bdsql" />
+				<property name="username" value="sa" />
+				<property name="password" value="sql" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- Registro de los mappers -->
+	<mappers>
+		
+		<mapper resource="developer/com/mybatis/MenuXML.xml" />		
+		<mapper resource="developer/com/mybatis/RolMenuXML.xml" />
+		<mapper resource="developer/com/mybatis/UsuarioXML.xml" />
+		
+		
+		<mapper resource="pro/vet/xml/citaXML.XML"/>
+		<mapper resource="pro/vet/xml/doctorXML.XML"/>
+		<mapper resource="pro/vet/xml/especialidadXML.XML"/>
+	</mappers>
+</configuration>
+

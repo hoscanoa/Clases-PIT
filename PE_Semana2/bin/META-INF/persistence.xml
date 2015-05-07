@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+<persistence-unit name="PE">
+		<!-- es la clase del Tipo de JPA(EclipseLink, JDO, Hibernate) -->
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		
+		<class>entidades.Cargo</class>
+		<class>entidades.Empleado</class>
+		
+		<properties>
+   			<property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+          	<property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/dawii2"/>
+   			<property name="eclipselink.jdbc.user" value="root"/>
+   			<property name="eclipselink.jdbc.password" value="mysql"/>
+   			<property name="eclipselink.logging.level" value="FINE"/> 
+		</properties>
+
+</persistence-unit>
+
+</persistence>

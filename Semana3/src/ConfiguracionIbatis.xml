@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias alias="cuidadMybatis" type="cibertec.edu.pe.beans.Ciudad" />
+		<typeAlias alias="paisMybatis" type="cibertec.edu.pe.beans.Pais" />
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+
+			<transactionManager type="JDBC" />
+			<dataSource type="UNPOOLED">
+				<property name="driver" value="net.sourceforge.jtds.jdbc.Driver" />
+				<property name="url" value="jdbc:jtds:sqlserver://localhost:1433/pit" />
+				<property name="username" value="sa" />
+				<property name="password" value="sql" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- Registro de los mappers -->
+	<mappers>
+		<mapper resource="cibertec/edu/pe/mybatis/CiudadXML.xml" />
+		<!--<mapper resource="cibertec/edu/pe/mybatis/PaisXML.xml" />-->
+	</mappers>
+</configuration>
+

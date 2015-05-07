@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="cuidadXml">
+	<select id="SQL_ListaCiudad" resultType="cuidadMybatis">
+		SELECT * FROM ciudad
+	</select>
+
+	<insert id="SQL_InsertarCiudad" parameterType="cuidadMybatis">
+		INSERT INTO ciudad
+		values(#{idCiu}, #{desCiu}, #{idPais})
+	</insert>
+
+	<update id="SQL_EditarCiudad" parameterType="cuidadMybatis">
+		UPDATE ciudad SET desCiu=#{desCiu}, idPais=#{idPais} WHERE idCiu=#{idCiu}
+	</update>
+	
+	<delete id="SQL_EliminarCiudad" parameterType="cuidadMybatis">
+		DELETE FROM ciudad WHERE idCiu=#{idCiu}
+	</delete>
+</mapper>

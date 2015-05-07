@@ -1,0 +1,51 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>      
+   <constant name="struts.devMode" value="true" />
+   <package name="Semana1Parte2JU" extends="struts-default">
+   
+      	<action name="AValidar" 
+      		class="cibertec.edu.pe.actions.UsuarioAction"
+      		method="Validar">
+			<result name="denegado">/denegado.jsp</result>
+			<result name="exito">/bienvenido.jsp</result>
+		</action>
+		   
+		<action name="AGrabar" 
+      		class="cibertec.edu.pe.actions.CiudadAction"
+      		method="Grabar">
+			<result name="success" type="redirectAction">AListado</result>			
+		</action>
+		
+		<action name="AListado" 
+      		class="cibertec.edu.pe.actions.CiudadAction"
+      		method="Listado">
+			<result name="success">/listado.jsp</result>			
+		</action>
+		
+		<action name="ABuscar" 
+      		class="cibertec.edu.pe.actions.CiudadAction"
+      		method="Buscar">
+			<result name="success">/nuevo.jsp</result>			
+		</action>
+		
+		
+		<action name="AEliminar" 
+      		class="cibertec.edu.pe.actions.CiudadAction"
+      		method="Eliminar">
+			<result name="success" type="redirectAction">AListado</result>			
+		</action>
+		
+		<action name="ANuevo" 
+      		class="cibertec.edu.pe.actions.CiudadAction"
+      		method="Nuevo">
+			<result name="success">/nuevo.jsp</result>			
+		</action>
+		
+		
+   </package>   	
+</struts>
+
+
+

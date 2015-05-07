@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="doctorXML">
+
+	<resultMap type="pro.vet.beans.especialidad" id="espeMap">
+		<id property="idespecialidad" column="idespecialidad" />
+		<result property="desespecialidad" column="desespecialidad" />
+	</resultMap>
+
+	<resultMap type="pro.vet.beans.doctor" id="doctorMap">
+		<id property="iddoctor" column="iddoctor" />
+		<result property="nombre" column="nombre" />
+		<association property="especialidadbean" resultMap="espeMap" />
+	</resultMap>
+
+	<select id="ListadoDoctor" resultMap="doctorMap">
+
+		select d.iddoctor,d.nombre,e.desespecialidad,e.idespecialidad
+		from doctor as d inner join especialidad as e
+		on d.idespecialidad=e.idespecialidad
+
+	</select>
+
+	<update id="EditaDoctor" parameterType="doctorAlias">
+		update doctor set nombre=#{nombre},
+		idespecialidad=#{especialidadbean.idespecialidad} where
+		iddoctor=#{iddoctor}
+	</update>
+
+	<insert id="GrabaDoctor" parameterType="doctorAlias">
+		insert into doctor values(#{nombre},#{especialidadbean.idespecialidad})
+	</insert>
+
+	<delete id="EliminaDoctor" parameterType="int">
+		delete from doctor where iddoctor=#{iddoctor}
+	</delete>
+
+	<select id="BuscaDoctor" resultMap="doctorMap" parameterType="int">
+		select * from doctor where iddoctor=#{iddoctor}
+	</select>
+</mapper>
+
+
+
+
+

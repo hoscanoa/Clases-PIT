@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ciudadxml">
+
+	<select id="SQL_ListaCiudad" resultType="ciudadmybatis"
+		statementType="CALLABLE">
+		EXEC SP_LISTACIUDAD
+	</select>
+
+	<insert id="SQL_InsertarCiudad" parameterType="ciudadmybatis"
+		statementType="CALLABLE">
+		 EXEC SP_INSERTAR_CIUDAD #{idCiu},#{desCiu},#{idPais}
+	</insert>
+
+	<update id="SQL_EditarCiudad" parameterType="ciudadmybatis"
+		statementType="CALLABLE">
+		EXEC SP_EDITAR_CIUDAD #{idCiu}, #{desCiu}, #{idPais}
+	</update>
+
+	<delete id="SQL_EliminarCiudad" parameterType="ciudadmybatis"
+		statementType="CALLABLE">
+		EXEC SP_ELIMINAR_CIUDAD #{idCiu}
+	</delete>
+	<select id="SQL_BuscarCiudad" resultType="ciudadmybatis"
+		parameterType="String" statementType="CALLABLE">
+		EXEC SP_BUSCA #{idCiu}
+	</select>
+
+
+	<!-- <select id="SQL_BuscarCiudad" resultType="ciudadmybatis" parameterType="String"> -->
+	<!-- select * from ciudad where idciu=#{idCiu} -->
+	<!-- </select> -->
+
+
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="menuxml">
+
+	<select id="SQL_LISTAR_MENU_ROL" resultType="menumybatis"
+		statementType="CALLABLE" parameterType="int">
+		EXEC SP_MENU #{idrol}
+	</select>
+<select id="SQL_LISTAR_MENU_HIJO" resultType="menumybatis"
+		statementType="CALLABLE" parameterType="int">
+		EXEC SP_MENU_HIJOS #{idpadre}
+	</select>
+	
+</mapper>

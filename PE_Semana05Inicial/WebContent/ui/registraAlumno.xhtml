@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="../templates/uiConMenu.xhtml">
+    
+    <ui:define name="head">
+
+    </ui:define>
+
+	<ui:define name="content">
+
+		<h:form>
+			<h:panelGrid columns="2">
+					
+					<h:outputText  for="idNombre" value="NOMBRE"/>
+					<h:inputText  id="idNombre" 
+						value="#{alumnoAction.alumno.nombre}"/>
+						
+					<h:outputText  for="idDireccion" value="DIRECCION"/>
+					<h:inputText  id="idDireccion" 
+						value="#{alumnoAction.alumno.direccion}"/>
+						
+					<h:outputText  for="idFecNac" value="FECHA DE NACIMIENTO"/>
+					<p:calendar  id="idFecNac" 
+						value="#{alumnoAction.alumno.fechaNacimiento}"
+						pattern="yyyy-MM-dd"/>
+						
+					<h:outputText  for="idCarrera" value="CARRERA"/>
+					<h:selectOneMenu  id="idCarrera" 
+						value="#{alumnoAction.alumno.carrera.idcarrera}">
+						<f:selectItem itemLabel="Seleccione Carrera" itemValue=" "/>
+						<f:selectItems value="#{comboAction.lstCarreras}" var="y"
+										itemLabel="#{y.descripcion}"
+										itemValue="#{y.idcarrera}"/>
+						
+					</h:selectOneMenu>	
+					
+					
+					<p:commandButton value="Enviar" ajax="false" action="#{alumnoAction.registra}" />
+					<p:commandButton value="Salir" ajax="false" action="#{alumnoAction.salir}" />
+			
+			</h:panelGrid>
+			
+		</h:form>  
+	</ui:define>
+</ui:composition>
+

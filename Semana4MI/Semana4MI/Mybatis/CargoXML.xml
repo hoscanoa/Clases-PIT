@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="dawi">		
+	<select id="SQL_registraCargo"	parameterType="cargoBeanIbatis" >
+		INSERT INTO TB_CARGO VALUES(#{id_cargo},
+									   #{descripcion})
+	</select>
+	
+	<select id="SQL_ModificaCargo"	parameterType="cargoBeanIbatis" >
+		UPDATE TB_CARGO SET descripcion=#{descripcion}
+		WHERE id_cargo=#{id_cargo}									
+	</select>
+	
+	<select id="SQL_listaCargo" 	resultType="cargoBeanIbatis">
+		SELECT 
+				id_Cargo,
+				descripcion 
+		FROM 
+			TB_CARGO
+	</select>
+	<select id="SQL_eliminaCargo"	parameterType="int" >
+		DELETE FROM TB_CARGO 
+		WHERE id_cargo=#{id_cargo}
+	</select>
+	<select id="SQL_buscaCargo"  parameterType="int"	resultType="cargoBeanIbatis">
+		SELECT 
+				id_Cargo,
+				descripcion 
+		FROM 
+			TB_CARGO
+			WHERE id_cargo= #{cod}
+	</select>
+</mapper>
